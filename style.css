@@ -93,22 +93,64 @@ button {
   }
 }
 
-@media (min-width: 1000px) {
-  .logo {
-    top: 0;
-    left: 40vh;
-    width: 55vw;
-    height: auto;
+@media (min-width: 915px) { /*tablet*/
+  .video-fundo{
+      overflow: hidden;
+      position: fixed;
+      top: -130vh;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+      opacity: 0.5;
+  }
+
+  .logo{
+      top: 0;
+      left: 40vh;
+      width: 55vw;
+      height: auto;
   }
 
   .split {
-    top: 20vw;
-    margin-left: 20vw;
+      top: 5vw;
+    margin-left: 35vw;
   }
 
   button {
-    left: 40vw;
-    width: 100%;
-    height: 60px; /* Occupy roughly 2/3 of the height */
+      left: 40vw;
+      width: 100%;
+      height: 60px; /* Occupy roughly 2/3 of the height */
   }
+}
+
+@media (min-width: 1200px) {    /*Computador*/
+  .video-fundo{
+      overflow: hidden;
+      position: fixed;
+      top: -150vh;
+      left: 0;
+      width: 100%;
+      height: auto;
+      z-index: -1;
+      opacity: 0.5;
+  }
+
+  .logo{
+      top: 0;
+      left: 40vh;
+      width: 55vw;
+      height: auto;
+  }
+
+  .split {
+      top: 8vw;
+    margin-left: 30vw;
+  }
+
+  button {
+      left: 40vw;
+      width: 100%;
+      height: 60px; /* Occupy roughly 2/3 of the height */
+  }  
 }
