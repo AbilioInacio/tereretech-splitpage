@@ -1,0 +1,114 @@
+/* Add styles here */
+body {
+  margin: 0;
+  overflow: hidden; /* Hide scrollbar initially */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: black; /* Or your desired background */
+  font-family: "Alfa Slab One", cursive;
+  color: #fff;
+}
+
+.video-fundo {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 110%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.logo {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  object-fit: contain; /* Or 'cover' depending on how you want it to scale */
+  z-index: 10; /* Ensure logo is on top initially */
+  animation: shrink-and-move 2s ease-in-out forwards 1s;
+}
+
+h2 {
+  font-size: 1.7em;
+  opacity: 0;
+  animation: surge 2s ease-in-out forwards 1s;
+}
+
+.split {
+  position: fixed;
+  top: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  font-family: "Alfa Slab One", cursive;
+  font-size: 1.5em;
+  margin-top: 10px;
+  width: 80vw;
+  height: 60px; /* Occupy roughly 2/3 of the height */
+  opacity: 0;
+  text-align: center;
+  z-index: 5;
+  border-radius: 15px;
+  animation: surge 2s ease-in-out forwards 1s;
+}
+
+.btn1 {
+  background-color: #70b62c;
+  color: #3b72b8;
+}
+
+.btn2 {
+  background-color: #3b72b8;
+  color: #70b62c;
+}
+
+@keyframes shrink-and-move {
+  /* Removed the delay from the animation definition */
+  to {
+    width: 30vw; /* Adjust final width as needed */
+    height: auto;
+    top: 20px; /* Adjust final top position as needed */
+    left: 20px; /* Adjust final left position as needed */
+    position: absolute; /* Change to absolute after animation for normal flow */
+    object-fit: contain;
+  }
+}
+
+@keyframes surge {
+  /* Removed the delay from the animation definition */
+  to {
+    transform: translateY(20px); /* Start slightly below final position */
+    transition: opacity 0.5 3s ease-in-out 2s, transform 3s ease-in-out 2s; /* 2s delay before fading/sliding in */
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1000px) {
+  .logo {
+    top: 0;
+    left: 40vh;
+    width: 55vw;
+    height: auto;
+  }
+
+  .split {
+    top: 20vw;
+    margin-left: 20vw;
+  }
+
+  button {
+    left: 40vw;
+    width: 100%;
+    height: 60px; /* Occupy roughly 2/3 of the height */
+  }
+}
