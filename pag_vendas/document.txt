@@ -1,0 +1,3 @@
+Imagens e Vídeos: No arquivo script.js, encontre o array productData. Substitua as URLs do https://via.placeholder.com pelas URLs das suas próprias imagens e vídeos.
+
+Links: Altere os links de compra (buyLink) e o número do WhatsApp nos arquivos index.html e script.js para os seus links reais.
