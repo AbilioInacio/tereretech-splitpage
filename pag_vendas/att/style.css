@@ -1,0 +1,273 @@
+/* ==================== CONFIGURAÇÕES GLOBAIS E VARIÁVEIS ==================== */
+:root {
+    --primary-color: #3b72b8; /* Azul Água */
+    --secondary-color: #70b62c; /* Verde Erva */
+    --text-color: #333;
+    --light-bg-color: #f4f8fa;
+    --white-color: #ffffff;
+    --gray-color: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-bg-color);
+    overflow-x: hidden;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+
+/* ==================== SEÇÕES ==================== */
+.full-page-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section p {
+    max-width: 800px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+/* Fundo alternado para visualização */
+section:nth-child(even) {
+    background-color: var(--white-color);
+}
+
+/* ==================== CARROSSÉIS (SWIPER.JS) ==================== */
+.swiper {
+    width: 100%;
+    max-width: 900px;
+    margin-bottom: 2rem;
+}
+
+/* Carrossel de Seleção (Seção 1) */
+#selecao-carrossel {
+    max-width: 1200px;
+}
+#selecao-carrossel .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(80%);
+    transform: scale(0.85);
+}
+#selecao-carrossel .swiper-slide-active {
+    filter: grayscale(0%);
+    transform: scale(1);
+}
+#selecao-carrossel .swiper-slide img {
+    max-width: 80%;
+    max-height: 50vh;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+#selecao-carrossel .swiper-slide h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-top: 1rem;
+}
+
+/* Carrosséis de Conteúdo (Seções 2-6) */
+.content-carrossel {
+    height: 35vh;
+    max-height: 300px;
+}
+.content-carrossel .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.swiper-pagination-bullet-active {
+    background: var(--secondary-color) !important;
+}
+
+/* Carrossel Final (Seção 7) */
+#final-carrossel {
+    height: 50vh;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+#final-carrossel .swiper-slide img,
+#final-carrossel .swiper-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== BOTÃO "LER MAIS" ==================== */
+.text-container {
+    max-width: 800px;
+    position: relative;
+}
+.extra-text {
+    display: none;
+}
+.text-container.expanded .extra-text {
+    display: inline;
+}
+.ler-mais-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    display: none; /* O JS vai exibir se necessário */
+}
+
+/* ==================== BOTÕES FIXOS E DE AÇÃO ==================== */
+#fixed-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#fixed-bottom-bar.hidden {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.buy-button {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+.buy-button:hover {
+    background-color: #5a9a1f; /* Verde mais escuro */
+    transform: translateY(-2px);
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: var(--white-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+    transition: transform 0.3s;
+}
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+/* ==================== SEÇÃO FINAL ==================== */
+#finalizacao .cta-text {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+    max-width: 600px;
+}
+#finalizacao .cta-text a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.final-buttons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+.final-buttons .buy-button.final-version {
+    padding: 18px 50px;
+    font-size: 1.2rem;
+}
+.final-buttons .whatsapp-button.final-version {
+    position: static; /* Remove posicionamento absoluto */
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+}
+.final-buttons .whatsapp-button.final-version i {
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    
+    .full-page-section {
+        padding: 1rem;
+        height: auto; /* Altura automática em telas pequenas */
+        min-height: 100vh;
+    }
+
+    #selecao-carrossel .swiper-slide h2 { font-size: 1.2rem; }
+    
+    #fixed-bottom-bar {
+        padding: 10px;
+    }
+    .buy-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        right: 15px;
+        bottom: 15px;
+    }
+    .final-buttons {
+        flex-direction: column;
+    }
+}
