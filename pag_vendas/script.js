@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 itens: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Itens+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Itens+2'],
                 acessorios: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acessório+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acessório+2'],
                 final: {
-                    images: ['https://via.placeholder.com/700x700/3b72b8/FFFFFF?text=Final+Azul+1', 'https://via.placeholder.com/700x700/3b72b8/FFFFFF?text=Final+Azul+2'],
-                    videos: [] // Adicione links de vídeo .mp4 aqui se tiver
+                    images: ['./img/stanley/stanley-motocross.webp', './img/stanley/stanley-lugarluzes.webp'],
+                    videos: ['../cliente-uso.webm'] // Adicione links de vídeo .mp4 aqui se tiver
                 }
             }
         },
