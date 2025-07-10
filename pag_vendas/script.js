@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Usei placeholders para imagens. Substitua pelos seus caminhos de imagem/vídeo.
     const productData = [
         {
-            id: 'garrafa-azul',
-            name: 'Garrafa Hidro Term-X Azul',
-            buyLink: '/comprar/azul',
-            mainImage: 'https://via.placeholder.com/400x500/3b72b8/FFFFFF?text=Garrafa+Azul',
+            id: 'garrafa-stanley',
+            name: 'Kit para Garrafa Stanley',
+            buyLink: 'https://loja.infinitepay.io/tereretech/uoe6946-garrafa-stanley-com-terere-tech',
+            mainImage: './img/stanley/stanley-tech2.webp',
             content: {
                 instalacao: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Instalação+2'],
                 acabamento: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acabamento+2'],
@@ -23,10 +23,27 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            id: 'garrafa-verde',
-            name: 'Garrafa Hidro Term-X Verde',
-            buyLink: '/comprar/verde',
-            mainImage: 'https://via.placeholder.com/400x500/70b62c/FFFFFF?text=Garrafa+Verde',
+            id: 'garrafa-inox',
+            name: 'Kit para Garrafa Inox',
+            buyLink: 'https://loja.infinitepay.io/tereretech/rhu2012-bomba-automatica-para-garrafas-inox',
+            mainImage: './img/inox/inox-grama.webp',
+            content: {
+                instalacao: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+2'],
+                acabamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+2'],
+                carregamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+2'],
+                itens: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+2'],
+                acessorios: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+2'],
+                final: {
+                    images: ['https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+1', 'https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+2'],
+                    videos: []
+                }
+            }
+        },
+        {
+            id: 'garrafa-universal',
+            name: 'Kit com adaptador Univesal',
+            buyLink: 'https://loja.infinitepay.io/tereretech/aus5730-bomba-automatica-para-garrafas-invicta',
+            mainImage: './img/universal/termolar couro.webp',
             content: {
                 instalacao: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+2'],
                 acabamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+2'],
@@ -40,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         // Adicione mais 4 objetos de garrafas aqui seguindo o mesmo padrão
-        { id: 'garrafa-preta', name: 'Garrafa Hidro Term-X Preta', buyLink: '/comprar/preta', mainImage: 'https://via.placeholder.com/400x500/333333/FFFFFF?text=Garrafa+Preta', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
-        { id: 'garrafa-branca', name: 'Garrafa Hidro Term-X Branca', buyLink: '/comprar/branca', mainImage: 'https://via.placeholder.com/400x500/f0f0f0/333333?text=Garrafa+Branca', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
-        { id: 'garrafa-vermelha', name: 'Garrafa Hidro Term-X Vermelha', buyLink: '/comprar/vermelha', mainImage: 'https://via.placeholder.com/400x500/c0392b/FFFFFF?text=Garrafa+Vermelha', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
-        { id: 'garrafa-inox', name: 'Garrafa Hidro Term-X Inox', buyLink: '/comprar/inox', mainImage: 'https://via.placeholder.com/400x500/bdc3c7/FFFFFF?text=Garrafa+Inox', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } }
+        //{ id: 'garrafa-preta', name: 'Garrafa Hidro Term-X Preta', buyLink: '/comprar/preta', mainImage: 'https://via.placeholder.com/400x500/333333/FFFFFF?text=Garrafa+Preta', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
+        //{ id: 'garrafa-branca', name: 'Garrafa Hidro Term-X Branca', buyLink: '/comprar/branca', mainImage: 'https://via.placeholder.com/400x500/f0f0f0/333333?text=Garrafa+Branca', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
+        //{ id: 'garrafa-vermelha', name: 'Garrafa Hidro Term-X Vermelha', buyLink: '/comprar/vermelha', mainImage: 'https://via.placeholder.com/400x500/c0392b/FFFFFF?text=Garrafa+Vermelha', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } },
+        //{ id: 'garrafa-inox', name: 'Garrafa Hidro Term-X Inox', buyLink: '/comprar/inox', mainImage: 'https://via.placeholder.com/400x500/bdc3c7/FFFFFF?text=Garrafa+Inox', content: { /* ... preencha o conteúdo ... */ final: {images:[], videos:[]} } }
     ];
 
     let currentProductIndex = 0;
