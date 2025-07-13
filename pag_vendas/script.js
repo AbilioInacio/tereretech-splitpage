@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
             id: 'garrafa-stanley',
             name: 'Kit para Garrafa Stanley',
             buyLink: 'https://loja.infinitepay.io/tereretech/uoe6946-garrafa-stanley-com-terere-tech',
-            mainImage: './img/stanley/stanley-tech2.webp',
+            mainImage: './img/stanley/stanley-delado-site.jpg',
             content: {
-                instalacao: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Instalação+2'],
-                acabamento: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acabamento+2'],
+                instalacao: ['../cliente-uso.mp4', './img/stanley/videos/instalacao-stanley.MP4'],
+                acabamento: ['./img/stanley/gatilho-stanely.webp', './img/stanley/stanley-tech.webp'],
                 carregamento: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Carregador+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Carregador+2'],
-                itens: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Itens+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Itens+2'],
-                acessorios: ['https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acessório+1', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acessório+2'],
+                itens: ['./img/stanley/conjunto-stanley.webp', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Itens+2'],
+                acessorios: ['./img/stanley/copo-com-stanely.webp', 'https://via.placeholder.com/800x400/3b72b8/FFFFFF?text=Acessório+2'],
                 final: {
-                    images: ['./img/stanley/stanley-motocross.webp', './img/stanley/stanley-lugarluzes.webp'],
-                    videos: ['../cliente-uso.webm'] // Adicione links de vídeo .mp4 aqui se tiver
+                    images: ['../tereretech-logo.png','./img/stanley/stanley-motocross.webp', './img/stanley/stanley-lugarluzes.webp'],
+                    videos: ['../cliente-uso.webm', './img/stanley/videos/terere-no-trator.MP4', './img/stanley/videos/stanley-video-geral-compress.mp4'] // Adicione links de vídeo .mp4 aqui se tiver
                 }
             }
         },
@@ -40,10 +40,44 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
         {
-            id: 'garrafa-universal',
-            name: 'Kit com adaptador Univesal',
+            id: 'garrafa-soprano',
+            name: 'Kit para Garrafa Soprano',
             buyLink: 'https://loja.infinitepay.io/tereretech/aus5730-bomba-automatica-para-garrafas-invicta',
-            mainImage: './img/universal/termolar couro.webp',
+            mainImage: './img/universal/soprano-inox-bujao.jpg',
+            content: {
+                instalacao: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+2'],
+                acabamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+2'],
+                carregamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+2'],
+                itens: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+2'],
+                acessorios: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+2'],
+                final: {
+                    images: ['https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+1', 'https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+2'],
+                    videos: []
+                }
+            }
+        },
+        {
+            id: 'garrafa-soprano-botijao',
+            name: 'Kit para Garrafa Soprano',
+            buyLink: 'https://loja.infinitepay.io/tereretech/aus5730-bomba-automatica-para-garrafas-invicta',
+            mainImage: './img/universal/soprano-botijao.jpg',
+            content: {
+                instalacao: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+2'],
+                acabamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+2'],
+                carregamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Carregador+2'],
+                itens: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Itens+2'],
+                acessorios: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acessório+2'],
+                final: {
+                    images: ['https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+1', 'https://via.placeholder.com/700x700/70b62c/FFFFFF?text=Final+Verde+2'],
+                    videos: []
+                }
+            }
+        },
+        {
+            id: 'garrafa-invicta',
+            name: 'Kit para Garrafa Invicta',
+            buyLink: 'https://loja.infinitepay.io/tereretech/aus5730-bomba-automatica-para-garrafas-invicta',
+            mainImage: './img/universal/soprano-inox-bujao.jpg',
             content: {
                 instalacao: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Instalação+2'],
                 acabamento: ['https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+1', 'https://via.placeholder.com/800x400/70b62c/FFFFFF?text=Acabamento+2'],
@@ -67,7 +101,20 @@ document.addEventListener('DOMContentLoaded', function () {
     let swiperInstances = {};
 
     // --- INICIALIZAÇÃO DOS CARROSSÉIS ---
+    //inicial
+    swiperInstances.init = new Swiper('#init-carrossel', {
+        loop: true,
+        autoplay: {
+            delay: 2000, // Muda a cada 2 segundos
+            disableOnInteraction: false,
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+    });
 
+    
     // 1. Carrossel de Seleção (Seção 1)
     const selecaoWrapper = document.querySelector('#selecao-carrossel .swiper-wrapper');
     productData.forEach(product => {
@@ -155,6 +202,26 @@ document.addEventListener('DOMContentLoaded', function () {
                     swiper.update();
                 }
             }
+        }
+
+        const initContent = product.content.final;
+        if (initContent && swiperInstances.init) {
+             let initSlides = '';
+             if (initContent.images) {
+                 initSlides += initContent.images.map(imgUrl => `
+                    <div class="swiper-slide"><img src="${imgUrl}" alt=""></div>
+                `).join('');
+             }
+             if (initContent.videos) {
+                  initSlides += initContent.videos.map(videoUrl => `
+                    <div class="swiper-slide">
+                        <video src="${videoUrl}" autoplay muted loop playsinline></video>
+                    </div>
+                `).join('');
+             }
+             swiperInstances.init.wrapperEl.innerHTML = initSlides;
+             swiperInstances.init.update();
+             swiperInstances.init.autoplay.start();
         }
         
         // Atualiza carrossel final (com imagens e vídeos)
