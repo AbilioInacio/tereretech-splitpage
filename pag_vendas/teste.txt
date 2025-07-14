@@ -1,0 +1,297 @@
+crie uma pagina estilo landing page com html css e javascript, com responsividade para smartphone, tablet e computador, com as cores principais #3b72b8 e #70b62c, as demais cores que precisar use cores que combinem com as principais e lembre folhas ervas verdes e água, cada seção tenha a altura da tela, serão 7 seções, na primeira seção teremos uma apresentação geral do produto, na segunda seção pergunte qual sua garrafa e tenha um carrossel com 6 imagens cada uma com uma garrafa e com um parágrafo h2 com o nome da garrafa para o usuário selecionar qual sua garrafa, de acordo com o item selecionado as imagens e os vídeos das próximas seções serão modificadas de acordo com a escolha inicial, também teremos um botão com sua posição fixa sempre visível "comprar agora" na centralizada na parte inferior da tela e seu link também vai mudar de acordo com a o item selecionado no carrossel e um botão de WhatsApp no canto inferior direito da tela. as próximas seções terão um título um carrossel com diversas imagens e vídeos e abaixo um texto explicativo, quando o texto deixar a seção maior que a altura da tela deve ter  um botão de ler mais que escondera o texto excedente. as seções terão os seguintes títulos,”conheça o tereré tech”,  "Instalação não fura sua garrafa", "acabamento e construção premium", "Carregamento Tipo-C", "Itens que acompanham o produto", "Conheça os acessórios", na última seção os botões que eram fixos na parte inferior da tela sumirão, a seção terá o título "Finalize sua venda", nela teremos imagens e vídeos alternando de forma automática a cada 2 segundos em formato de carrossel do item correspondente ao item selecionado no carrossel, e um parágrafo com texto chamativo, falando caso reste alguma dúvida sobre o produto clique aqui, e um botão com link do WhatsApp ou comprar agora e um botão de comprar agora.
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ======================= DADOS DOS PRODUTOS =======================
+  const dadosGarrafas = {
+    stanley: {
+      nome: "Bomba para Stanley",
+      linkCompra: "https://seusite.com/comprar/stanley",
+      imagemPrincipal: "./img/stanley/stanley-delado-site.jpg",
+      imagens: {
+        instalacao: [
+          "../cliente-uso.webm",
+          "https://via.placeholder.com/600x400/3b72b8/FFFFFF?text=Instalação+Stanley+2",
+        ],
+        acabamento: [
+          "https://via.placeholder.com/600x400/70b62c/FFFFFF?text=Acabamento+Stanley+1",
+          "https://via.placeholder.com/600x400/70b62c/FFFFFF?text=Acabamento+Stanley+2",
+        ],
+        carregamento: [
+          "https://via.placeholder.com/600x400/3b72b8/FFFFFF?text=Tipo-C+Stanley",
+        ],
+        itens: [
+          "https://via.placeholder.com/600x400/70b62c/FFFFFF?text=Itens+Stanley",
+        ],
+        acessorios: [
+          "https://via.placeholder.com/600x400/3b72b8/FFFFFF?text=Acessórios+Stanley",
+        ],
+      },
+      midiaFinal: [
+        {
+          type: "image",
+          src: "./img/stanley/stanley-motocross.webp",
+        },
+        {
+          type: "video",
+          src: "./img/stanley/videos/terere-no-trator.MP4",
+        },
+        {
+          type: "image",
+          src: "./img/stanley/stanley-lugarluzes.webp",
+        },
+        {
+          type: "video",
+          src: "../cliente-uso.webm",
+        },
+        {
+          type: "video",
+          src: "./img/stanley/videos/stanley-video-geral-compress.mp4",
+        },
+        // Exemplo de vídeo: { type: 'video', src: 'path/to/video_stanley.mp4' }
+      ],
+    },
+    inox: {
+      nome: "Bomba para Inox",
+      linkCompra: "https://seusite.com/comprar/termolar",
+      imagemPrincipal: "./img/inox/inox.jpg",
+      imagens: {
+        instalacao: [
+          "https://via.placeholder.com/600x400/b83b3b/FFFFFF?text=Instalação+Termolar+1",
+        ],
+        acabamento: [
+          "https://via.placeholder.com/600x400/c27a24/FFFFFF?text=Acabamento+Termolar+1",
+        ],
+        carregamento: [
+          "https://via.placeholder.com/600x400/b83b3b/FFFFFF?text=Tipo-C+Termolar",
+        ],
+        itens: [
+          "https://via.placeholder.com/600x400/c27a24/FFFFFF?text=Itens+Termolar",
+        ],
+        acessorios: [
+          "https://via.placeholder.com/600x400/b83b3b/FFFFFF?text=Acessórios+Termolar",
+        ],
+      },
+      midiaFinal: [
+        {
+          type: "image",
+          src: "https://via.placeholder.com/600x400/FFFFFF/b83b3b?text=Termolar+Final+1",
+        },
+      ],
+    },
+    soprano: {
+      nome: "Bomba para Soprano",
+      linkCompra: "https://seusite.com/comprar/generica",
+      imagemPrincipal: "./img/universal/soprano-inox-bujao.jpg",
+      imagens: {
+        instalacao: [
+          "https://via.placeholder.com/600x400/888888/FFFFFF?text=Instalação+Universal+1",
+        ],
+        acabamento: [
+          "https://via.placeholder.com/600x400/555555/FFFFFF?text=Acabamento+Universal+1",
+        ],
+        carregamento: [
+          "https://via.placeholder.com/600x400/888888/FFFFFF?text=Tipo-C+Universal",
+        ],
+        itens: [
+          "https://via.placeholder.com/600x400/555555/FFFFFF?text=Itens+Universal",
+        ],
+        acessorios: [
+          "https://via.placeholder.com/600x400/888888/FFFFFF?text=Acessórios+Universal",
+        ],
+      },
+      midiaFinal: [
+        {
+          type: "image",
+          src: "https://via.placeholder.com/600x400/FFFFFF/555555?text=Universal+Final+1",
+        },
+      ],
+    },
+    produto4: {
+      nome: "Garrafa Fit",
+      linkCompra: "#",
+      imagemPrincipal:
+        "https://via.placeholder.com/300x300/2cb6a9/FFFFFF?text=Fit",
+      imagens: {},
+      midiaFinal: [],
+    },
+    produto5: {
+      nome: "Garrafa Office",
+      linkCompra: "#",
+      imagemPrincipal:
+        "https://via.placeholder.com/300x300/b62c8a/FFFFFF?text=Office",
+      imagens: {},
+      midiaFinal: [],
+    },
+    produto6: {
+      nome: "Garrafa Kids",
+      linkCompra: "#",
+      imagemPrincipal:
+        "https://via.placeholder.com/300x300/b6822c/FFFFFF?text=Kids",
+      imagens: {},
+      midiaFinal: [],
+    },
+  };
+
+  let garrafaSelecionada = "stanley"; // Garrafa padrão
+
+  // ======================= INICIALIZAÇÃO DOS CARROSSÉIS =======================
+  const swiperInicioWrapper = document.querySelector(
+    ".swiper-inicio .swiper-wrapper"
+  );
+  for (const key in dadosGarrafas) {
+    const slide = document.createElement("div");
+    slide.className = "swiper-slide";
+    slide.dataset.garrafa = key;
+    slide.innerHTML = `
+            <img src="${dadosGarrafas[key].imagemPrincipal}" alt="${dadosGarrafas[key].nome}">
+            <h2>${dadosGarrafas[key].nome}</h2>
+        `;
+    swiperInicioWrapper.appendChild(slide);
+  }
+
+  const swiperInicio = new Swiper(".swiper-inicio", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      slideChange: function () {
+        const activeSlide = this.slides[this.activeIndex];
+        garrafaSelecionada = activeSlide.dataset.garrafa;
+        atualizarPagina();
+      },
+    },
+  });
+
+  // Demais Carrosséis
+  const swipersConteudo = {
+    apresentacao: new Swiper(".swiper-apresentacao", {
+      // NOVO CARROSSEL
+      autoplay: { delay: 2000, disableOnInteraction: false },
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+    }),
+    instalacao: new Swiper(".swiper-instalacao", {
+      pagination: { el: ".swiper-pagination" },
+    }),
+    acabamento: new Swiper(".swiper-acabamento", {
+      pagination: { el: ".swiper-pagination" },
+    }),
+    carregamento: new Swiper(".swiper-carregamento", {
+      pagination: { el: ".swiper-pagination" },
+    }),
+    itens: new Swiper(".swiper-itens", {
+      pagination: { el: ".swiper-pagination" },
+    }),
+    acessorios: new Swiper(".swiper-acessorios", {
+      pagination: { el: ".swiper-pagination" },
+    }),
+    final: new Swiper(".swiper-final", {
+      autoplay: { delay: 2000, disableOnInteraction: false },
+      effect: "fade",
+      fadeEffect: { crossFade: true },
+    }),
+  };
+
+  // ======================= FUNÇÃO PARA ATUALIZAR CONTEÚDO DINÂMICO =======================
+
+  // Função auxiliar para popular carrosséis de mídia (imagem/vídeo)
+  function popularMidiaCarrossel(swiper, midias) {
+    if (!swiper || !midias) return;
+    swiper.removeAllSlides();
+    midias.forEach((midia) => {
+      let slideContent = "";
+      if (midia.type === "image") {
+        slideContent = `<img src="${midia.src}" alt="Mídia do produto">`;
+      } else if (midia.type === "video") {
+        slideContent = `<video src="${midia.src}" autoplay muted loop playsinline></video>`;
+      }
+      swiper.appendSlide(`<div class="swiper-slide">${slideContent}</div>`);
+    });
+    swiper.update();
+    if (swiper.autoplay && swiper.autoplay.running) {
+      swiper.autoplay.stop();
+      swiper.autoplay.start();
+    }
+  }
+
+  function atualizarPagina() {
+    const dados = dadosGarrafas[garrafaSelecionada];
+    if (!dados) return;
+
+    // 1. Atualizar links dos botões de comprar
+    document.getElementById("btn-comprar-fixo").href = dados.linkCompra;
+    document.querySelector(".btn-comprar-final").href = dados.linkCompra;
+
+    // 2. Atualizar carrosséis de conteúdo (com imagens simples)
+    for (const secao in swipersConteudo) {
+      // Pula os carrosséis de mídia que são tratados separadamente
+      if (["apresentacao", "final"].includes(secao)) continue;
+
+      if (swipersConteudo.hasOwnProperty(secao)) {
+        const swiper = swipersConteudo[secao];
+        const imagens = dados.imagens[secao] || [];
+        swiper.removeAllSlides();
+        imagens.forEach((src) => {
+          swiper.appendSlide(
+            `<div class="swiper-slide"><img src="${src}" alt="Imagem da seção ${secao}"></div>`
+          );
+        });
+        swiper.update();
+      }
+    }
+
+    // 3. Atualizar carrosséis de mídia (apresentação e final)
+    const midias = dados.midiaFinal || [];
+    popularMidiaCarrossel(swipersConteudo.apresentacao, midias);
+    popularMidiaCarrossel(swipersConteudo.final, midias);
+  }
+
+  // ======================= LÓGICA DO "LER MAIS" =======================
+  document.querySelectorAll(".secao").forEach((secao) => {
+    const container = secao.querySelector(".texto-explicativo-container");
+    const btn = secao.querySelector(".ler-mais-btn");
+    if (container && btn) {
+      if (container.scrollHeight > container.clientHeight) {
+        btn.style.display = "block";
+      }
+      btn.addEventListener("click", () => {
+        container.classList.toggle("expandido");
+        btn.textContent = container.classList.contains("expandido")
+          ? "Ler Menos"
+          : "Ler Mais";
+      });
+    }
+  });
+
+  // ======================= LÓGICA PARA ESCONDER BOTÕES FIXOS NA ÚLTIMA SEÇÃO =======================
+  const secaoFinal = document.getElementById("finalizar");
+  const botoesFixos = document.getElementById("botoes-fixos");
+  const botaoWhatsappFixo = document.getElementById("btn-whatsapp-fixo");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        botoesFixos.classList.toggle("hidden", entry.isIntersecting);
+        botaoWhatsappFixo.classList.toggle("hidden", entry.isIntersecting);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(secaoFinal);
+
+  // ======================= CHAMADA INICIAL PARA POPULAR A PÁGINA =======================
+  atualizarPagina();
+});

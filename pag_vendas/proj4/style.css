@@ -1,0 +1,323 @@
+/* --- GERAL E VARIÁVEIS DE COR --- */
+:root {
+  --primary-color: #3b72b8; /* Azul Água */
+  --secondary-color: #70b62c; /* Verde Erva */
+  --text-light: #f4f4f4;
+  --text-dark: #333;
+  --bg-dark-transparent: rgba(0, 0, 0, 0.6);
+  --bg-light-transparent: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+}
+
+/* --- ESTRUTURA DAS SEÇÕES --- */
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+section p {
+  max-width: 800px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Fundo alternado para as seções */
+section:nth-of-type(odd) {
+  background: linear-gradient(135deg, var(--primary-color), #2c5a9a);
+}
+section:nth-of-type(even) {
+  background: linear-gradient(135deg, #283c1c, #1a2712);
+}
+
+/* --- CARROSSÉIS --- */
+.carousel-container {
+  width: 90%;
+  max-width: 1000px;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item img,
+.carousel-item video {
+  width: 100%;
+  max-width: 700px;
+  max-height: 50vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--bg-light-transparent);
+  border: none;
+  color: var(--text-light);
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+.carousel-button:hover {
+  background-color: var(--secondary-color);
+}
+.carousel-button.prev {
+  left: -20px;
+}
+.carousel-button.next {
+  right: -20px;
+}
+
+/* --- SEÇÃO 2: SELEÇÃO DE GARRAFA --- */
+#selecao-garrafa .carousel-track {
+  gap: 2rem;
+}
+
+#selecao-garrafa .carousel-item {
+  min-width: 250px;
+  flex-direction: column;
+  cursor: pointer;
+  border: 4px solid transparent;
+  border-radius: 15px;
+  padding: 1rem;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+#selecao-garrafa .carousel-item:hover {
+  transform: scale(1.05);
+}
+
+#selecao-garrafa .carousel-item.active {
+  border-color: var(--secondary-color);
+  transform: scale(1.1);
+  background-color: var(--bg-light-transparent);
+}
+
+#selecao-garrafa .carousel-item img {
+  max-height: 250px;
+}
+
+#selecao-garrafa .carousel-item p {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* --- TEXTO COM "LER MAIS" --- */
+.expandable-text {
+  max-height: 100px; /* Altura inicial para esconder o texto */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease-in-out;
+}
+.expandable-text.expanded {
+  max-height: 1000px; /* Altura grande para mostrar tudo */
+}
+.expandable-text::after {
+  /* Gradiente para dar efeito de corte */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(to top, #283c1c, transparent);
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.expandable-text.expanded::after {
+  opacity: 0;
+}
+
+.read-more-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.read-more-btn:hover {
+  background-color: #5a9223;
+}
+
+/* --- BOTÕES FIXOS --- */
+.fixed-buttons-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  pointer-events: none; /* Permite clicar através do container */
+  transition: opacity 0.5s, visibility 0.5s;
+}
+.fixed-buttons-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.buy-now-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, background-color 0.3s;
+  pointer-events: all; /* Habilita clique no botão */
+}
+.buy-now-btn:hover {
+  transform: scale(1.05);
+  background-color: #5a9223;
+}
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  z-index: 1001;
+  transition: transform 0.3s, opacity 0.5s, visibility 0.5s;
+  pointer-events: all;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+.whatsapp-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* --- ÚLTIMA SEÇÃO: FINALIZE A VENDA --- */
+#finalize-venda {
+  background: linear-gradient(135deg, #1d2b0e, #000);
+}
+#finalize-venda .carousel-item img,
+#finalize-venda .carousel-item video {
+  max-height: 60vh;
+}
+#finalize-venda p {
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+}
+#finalize-venda p a {
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+#finalize-venda .final-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+#finalize-venda .final-buy-btn {
+  background-color: var(--primary-color);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 1.8rem;
+  }
+  section p {
+    font-size: 1rem;
+  }
+  .carousel-button {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.8rem;
+  }
+  .carousel-button.prev {
+    left: 0;
+  }
+  .carousel-button.next {
+    right: 0;
+  }
+
+  #selecao-garrafa .carousel-container {
+    width: 100%;
+  }
+  #selecao-garrafa .carousel-item {
+    min-width: 200px;
+  }
+  .buy-now-btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
+  .whatsapp-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+  #finalize-venda .final-buttons {
+    flex-direction: column;
+  }
+}

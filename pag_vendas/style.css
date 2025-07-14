@@ -1,293 +1,464 @@
-/* ==================== CONFIGURAÇÕES GLOBAIS E VARIÁVEIS ==================== */
+/* ======================= CONFIGURAÇÕES GLOBAIS E VARIÁVEIS DE COR ======================= */
 :root {
-    --primary-color: #3b72b8; /* Azul Água */
-    --secondary-color: #70b62c; /* Verde Erva */
-    --text-color: #333;
-    --light-bg-color: #f4f8fa;
-    --white-color: #ffffff;
-    --gray-color: #e0e0e0;
+  --cor-principal-azul: #3b72b8;
+  --cor-principal-verde: #70b62c;
+  --cor-fundo-secao: #f0f4f8; /* Um cinza azulado claro */
+  --cor-texto-claro: #ffffff;
+  --cor-texto-escuro: #333333;
+  --cor-texto-secundario: #555555;
+  --cor-sombra: rgba(0, 0, 0, 0.15);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+  /* Efeito de "snap" ao rolar, cada seção trava na tela */
+  scroll-snap-type: y mandatory;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-color);
-    background-color: var(--light-bg-color);
-    overflow-x: hidden;
+  background-color: var(--cor-fundo-secao);
+  color: var(--cor-texto-escuro);
 }
 
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-bottom: 2rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+/* ======================= ESTILO DAS SEÇÕES ======================= */
+.secao {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  scroll-snap-align: start; /* Ponto de ancoragem para o scroll-snap */
+  text-align: center;
 }
 
-h2 strong{
-    color: var(--secondary-color);
+.secao:nth-child(odd) {
+  background-color: var(--cor-fundo-secao);
+}
+.secao:nth-child(even) {
+  background-color: var(--cor-texto-claro);
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.8rem; }
-h3 { color: var(--text-color); }
-
-/* ==================== SEÇÕES ==================== */
-.full-page-section {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+h1,
+h2 {
+  color: var(--cor-principal-azul);
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px var(--cor-sombra);
 }
 
-.content-section p {
-    max-width: 800px;
-    line-height: 1.7;
-    font-size: 1.1rem;
+h2 {
+  font-size: 2.2rem;
 }
 
-/* Fundo alternado para visualização */
-section:nth-child(even) {
-    background-color: var(--white-color);
+/* ======================= ESTILO DA NOVA SEÇÃO APRESENTAÇÃO ======================= */
+#apresentacao {
+  /* Usa a cor de fundo do primeiro item do :nth-child(odd) */
+  background-color: var(--cor-fundo-secao);
 }
 
-/* ==================== CARROSSÉIS (SWIPER.JS) ==================== */
+#apresentacao .swiper-conteudo {
+  height: 60%;
+  max-height: 500px;
+}
+
+.texto-apresentacao {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  max-width: 600px;
+  animation: bounce 2s infinite; /* Adiciona uma animação sutil para chamar a atenção para rolar */
+}
+
+/* Animação para o texto de apresentação */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ======================= CARROSSÉIS (SWIPER.JS) ======================= */
 .swiper {
-    width: 100%;
-    max-width: 900px;
-    margin-bottom: 2rem;
+  width: 100%;
+  max-width: 800px;
+  height: 60%;
+  margin-bottom: 1rem;
 }
 
-/* Carrossel de Seleção (Seção 1) */
-#selecao-carrossel {
-    max-width: 1200px;
-}
-#selecao-carrossel .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(80%);
-    transform: scale(0.85);
-}
-#selecao-carrossel .swiper-slide-active {
-    filter: grayscale(0%);
-    transform: scale(1);
-}
-#selecao-carrossel .swiper-slide img {
-    max-width: 80%;
-    max-height: 50vh;
-    object-fit: contain;
-    margin-bottom: 1rem;
-}
-#selecao-carrossel .swiper-slide h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-top: 1rem;
+.swiper-inicio {
+  height: 60vh;
+  max-width: 1000px;
 }
 
-/* Carrosséis de Conteúdo (Seções 2-6) */
-.content-carrossel {
-    height: 35vh;
-    max-height: 300px;
+.swiper-inicio .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-.content-carrossel .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+
+.swiper-inicio .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.5;
+  transform: scale(0.85);
 }
+
+.swiper-inicio .swiper-slide h2 {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--cor-principal-verde);
+}
+
+.swiper-slide img,
+.swiper-slide video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.swiper-inicio img {
+  object-fit: contain;
+}
+
+/* Setas de navegação do carrossel principal */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-principal-verde) !important;
+}
+
+/* Paginação (bolinhas) dos carrosséis de conteúdo */
 .swiper-pagination-bullet-active {
-    background: var(--secondary-color) !important;
+  background: var(--cor-principal-verde) !important;
 }
 
-/* Carrossel Final (Seção 7) */
-#final-carrossel {
-    height: 50vh;
-    max-width: 700px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-#final-carrossel .swiper-slide img,
-#final-carrossel .swiper-slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* ======================= TEXTO EXPLICATIVO E BOTÃO "LER MAIS" ======================= */
+.texto-explicativo-container {
+  max-width: 700px;
+  max-height: 5em; /* Altura inicial (aprox. 3 linhas) */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.7s ease-in-out;
 }
 
-#init-carrossel {
-    height: 50vh;
-    max-width: 700px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-#init-carrossel .swiper-slide img,
-#init-carrossel .swiper-slide video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.texto-explicativo-container.expandido {
+  max-height: 500px; /* Altura máxima quando expandido */
 }
 
-/* ==================== BOTÃO "LER MAIS" ==================== */
-.text-container {
-    max-width: 800px;
-    position: relative;
+.texto-explicativo-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--cor-texto-secundario);
 }
-.extra-text {
-    display: none;
-}
-.text-container.expanded .extra-text {
-    display: inline;
-}
+
 .ler-mais-btn {
-    background: none;
-    border: none;
-    color: var(--secondary-color);
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 1rem;
-    font-size: 1rem;
-    /*display: none; /* O JS vai exibir se necessário */
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-principal-verde);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+.ler-mais-btn:hover {
+  background-color: #5a9223;
+}
+/*
+.ler-mais-btn {
+  background-color: var(--cor-principal-verde);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  display: none; // Começa escondido, JS mostra se necessário
 }
 
-/* ==================== BOTÕES FIXOS E DE AÇÃO ==================== */
-#fixed-bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+.ler-mais-btn:hover {
+  background-color: #5a9a20; // Verde mais escuro
+  transform: scale(1.05);
+}*/
+
+/* ======================= BOTÕES FIXOS ======================= */
+#botoes-fixos {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-#fixed-bottom-bar.hidden {
-    opacity: 0;
-    transform: translateY(100%);
+#botoes-fixos.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.buy-button {
-    background-color: var(--secondary-color);
-    color: var(--white-color);
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: background-color 0.3s, transform 0.3s;
+.btn-comprar {
+  background-color: var(--cor-principal-verde);
+  color: var(--cor-texto-claro);
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px var(--cor-sombra);
+  transition: all 0.3s ease;
 }
-.buy-button:hover {
-    background-color: #5a9a1f; /* Verde mais escuro */
-    transform: translateY(-2px);
-}
-
-.whatsapp-button {
-    background-color: #25D366;
-    color: var(--white-color);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    position: absolute;
-    right: 30px;
-    bottom: 20px;
-    transition: transform 0.3s;
-}
-.whatsapp-button:hover {
-    transform: scale(1.1);
+.btn-comprar:hover {
+  background-color: #5a9a20;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px var(--cor-sombra);
 }
 
-/* ==================== SEÇÃO FINAL ==================== */
-#finalizacao .cta-text {
-    font-size: 1.2rem;
-    margin: 2rem 0;
-    max-width: 600px;
-}
-#finalizacao .cta-text a {
-    color: var(--secondary-color);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.final-buttons {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-.final-buttons .buy-button.final-version {
-    padding: 18px 50px;
-    font-size: 1.2rem;
-}
-.final-buttons .whatsapp-button.final-version {
-    position: static; /* Remove posicionamento absoluto */
-    width: auto;
-    height: auto;
-    border-radius: 50px;
-    padding: 15px 30px;
-    font-size: 1.1rem;
-    background-color: var(--primary-color);
-}
-.final-buttons .whatsapp-button.final-version i {
-    font-size: 1.3rem;
-    margin-right: 10px;
+#btn-whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px var(--cor-sombra);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
+#btn-whatsapp-fixo.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
 
-/* ==================== RESPONSIVIDADE ==================== */
+#btn-whatsapp-fixo:hover {
+  transform: scale(1.1);
+}
+
+/* ======================= SEÇÃO FINAL ======================= */
+#finalizar {
+  background: linear-gradient(
+    135deg,
+    var(--cor-principal-azul),
+    var(--cor-principal-verde)
+  );
+  color: var(--cor-texto-claro);
+}
+
+#finalizar h2 {
+  color: var(--cor-texto-claro);
+}
+
+.swiper-final {
+  height: 50%;
+  max-height: 400px;
+}
+
+.texto-final {
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+.texto-final a {
+  color: #aaffec; /* Um ciano claro para destaque */
+  font-weight: bold;
+  text-decoration: none;
+}
+.botoes-final {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+.btn-comprar-final,
+.btn-whatsapp-final {
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, background-color 0.3s;
+}
+.btn-comprar-final {
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-principal-azul);
+}
+.btn-comprar-final:hover {
+  background-color: #eef;
+  transform: scale(1.05);
+}
+.btn-whatsapp-final {
+  background-color: transparent;
+  border: 2px solid var(--cor-texto-claro);
+  color: var(--cor-texto-claro);
+}
+.btn-whatsapp-final:hover {
+  background-color: var(--cor-texto-claro);
+  color: var(--cor-principal-verde);
+  transform: scale(1.05);
+}
+
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.3rem; }
-    
-    .full-page-section {
-        padding: 1rem;
-        height: auto; /* Altura automática em telas pequenas */
-        min-height: 100vh;
-    }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .secao {
+    padding: 1rem;
+  }
+  /*.swiper-inicio {
+    height: 300px;
+  }*/
+  .swiper-conteudo {
+    height: 50%;
+  }
+}
+/* ======================= RESPONSIVIDADE ======================= */
 
-    #selecao-carrossel .swiper-slide h2 { font-size: 1.2rem; }
-    
-    #fixed-bottom-bar {
-        padding: 10px;
-    }
-    .buy-button {
-        padding: 12px 25px;
-        font-size: 1rem;
-    }
-    .whatsapp-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        right: 15px;
-        bottom: 15px;
-    }
-    .final-buttons {
-        flex-direction: column;
-    }
+/* Para Tablets e Celulares Maiores (a partir de 768px para baixo) */
+@media (max-width: 768px) {
+  .secao {
+    /* Mantém a altura da tela, mas reduz o padding lateral */
+    padding: 2rem 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  /* Reduz a altura do carrossel principal em tablets */
+  /*.swiper-inicio {
+    height: 350px;
+  }*/
+
+  /* Reduz a altura dos carrosséis de conteúdo */
+  .swiper-conteudo {
+    height: 50%;
+  }
+
+  .texto-explicativo-container p {
+    font-size: 1rem; /* Texto um pouco menor para caber melhor na tela */
+  }
+
+  /* Ajusta o botão de compra fixo para não ser tão largo */
+  .btn-comprar {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+
+  /* Ajustes na seção final */
+  .texto-final {
+    font-size: 1.1rem;
+  }
+
+  .botoes-final {
+    gap: 1rem; /* Diminui o espaço entre os botões */
+  }
+
+  .btn-comprar-final,
+  .btn-whatsapp-final {
+    padding: 12px 25px;
+  }
+}
+
+/* Para Celulares (a partir de 480px para baixo) */
+@media (max-width: 480px) {
+  .secao {
+    padding: 1.5rem 1rem; /* Menos padding ainda para telas pequenas */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Título da garrafa no primeiro carrossel */
+  .swiper-inicio .swiper-slide h2 {
+    font-size: 1.3rem;
+  }
+
+  /*.swiper-inicio {
+    height: 300px;
+  }*/
+
+  /* As setas do carrossel podem ficar muito próximas do slide */
+  /*.swiper-button-next,
+  .swiper-button-prev {
+    //Esconde as setas em telas muito pequenas, o swipe é suficiente
+    display: none;
+  }
+  */
+
+  /* Botões da seção final ficam empilhados */
+  .botoes-final {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px; /* Limita a largura máxima dos botões */
+  }
+
+  .btn-comprar-final,
+  .btn-whatsapp-final {
+    width: 100%; /* Faz os botões ocuparem toda a largura do container */
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  /* Ajustes finos nos botões fixos para não ocuparem muito espaço */
+  #botoes-fixos {
+    bottom: 15px;
+  }
+
+  #btn-comprar-fixo {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  #btn-whatsapp-fixo {
+    width: 55px;
+    height: 55px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
