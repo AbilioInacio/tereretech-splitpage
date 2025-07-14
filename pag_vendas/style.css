@@ -9,12 +9,20 @@
   --cor-sombra: rgba(0, 0, 0, 0.15);
 }
 
-* {
+/* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
+}*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html {
@@ -74,7 +82,7 @@ h2 {
 
 .texto-apresentacao {
   margin-top: 1.5rem;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: var(--cor-texto-secundario);
   max-width: 600px;
   animation: bounce 2s infinite; /* Adiciona uma animação sutil para chamar a atenção para rolar */
@@ -111,12 +119,35 @@ h2 {
 }
 
 .swiper-inicio .swiper-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 10px; /* Borda arredondada no slide inteiro */
+    overflow: hidden; /* Garante que nada vaze */
+    /*background-color: var(--cor-fundo-secao); /* Cor de fundo para o slide */
+}
+
+/* NOVO CÓDIGO PARA CORRIGIR O LAYOUT */
+
+/* Faz a imagem preencher o espaço disponível, de forma flexível */
+.swiper-inicio .swiper-slide img {
+    width: 100%;
+    height: 0; /* Base de altura zero para o flex-grow funcionar corretamente */
+    flex-grow: 1; /* A mágica está aqui: a imagem cresce para preencher o espaço que sobrar */
+    object-fit: contain; /* Mantém a proporção e preenche o espaço */
+}
+
+/* Garante que o título tenha seu próprio espaço e nunca seja cortado */
+.swiper-inicio .swiper-slide h2 {
+    margin: 0; /* Remove margens padrão */
+    padding: 0.75rem 0.5rem; /* Adiciona espaço interno para o texto respirar */
+    width: 100%; /* Ocupa toda a largura */
+    text-align: center;
+    flex-shrink: 0; /* Crucial: impede que o título seja espremido ou encolhido */
+    font-size: 1.4rem; /* Um bom tamanho padrão */
+    color: var(--cor-principal-verde);
+    /*background-color: var(--cor-fundo-secao); /* Garante a legibilidade */
 }
 
 .swiper-inicio .swiper-slide:not(.swiper-slide-active) {
@@ -174,7 +205,7 @@ h2 {
 }
 
 .ler-mais-btn {
-  background-color: var(--cor-texto-claro);
+  background-color: transparent;
   color: var(--cor-principal-verde);
   border: none;
   padding: 0.7rem 1.5rem;
@@ -415,7 +446,7 @@ h2 {
 
   /* Título da garrafa no primeiro carrossel */
   .swiper-inicio .swiper-slide h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   /*.swiper-inicio {
@@ -429,6 +460,13 @@ h2 {
     display: none;
   }
   */
+
+  /* Dentro de @media (max-width: 480px) */
+
+.swiper-inicio .swiper-slide h2 {
+    font-size: 1.2rem; /* Reduz um pouco a fonte nos menores dispositivos */
+    padding: 0.5rem;
+}
 
   /* Botões da seção final ficam empilhados */
   .botoes-final {
