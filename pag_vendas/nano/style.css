@@ -1,0 +1,413 @@
+/* Importação de fontes do Google Fonts (opcional) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+:root {
+  --primary-color: #28a745; /* Verde do Tereré */
+  --secondary-color: #007bff; /* Azul da Tech */
+  --accent-color: #ffc107; /* Um toque de amarelo para destaque (opcional) */
+  --dark-text: #333;
+  --light-text: #f8f9fa;
+  --background-light: #f8f9fa;
+  --background-dark: #343a40;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Reset Básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background-color: var(--background-light);
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Tipografia */
+h1,
+h2,
+h3 {
+  margin-bottom: 20px;
+  color: var(--dark-text);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.8em;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2em;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: background-color var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+.primary-btn {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn:hover {
+  background-color: #218838; /* Verde mais escuro */
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn:hover {
+  background-color: #0056b3; /* Azul mais escuro */
+  transform: translateY(-2px);
+}
+
+/* Header - Hero Section */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../img/garrafa-terere-tech.jpeg"); /* Substitua pela sua imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  color: var(--light-text);
+  text-align: center;
+  padding: 80px 20px;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero .container {
+  z-index: 1;
+}
+
+.hero .logo {
+  max-width: 200px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+.hero h1 {
+  color: var(--light-text);
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero .subtitle {
+  font-size: 1.4em;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero .main-media {
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.hero .product-hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sections Gerais */
+section {
+  padding: 60px 0;
+  background-color: var(--background-light);
+}
+
+section:nth-of-type(even) {
+  /* Alterna a cor de fundo das seções */
+  background-color: #e9ecef;
+}
+
+/* Benefits Section */
+.benefits-section {
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.benefit-item {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-speed) ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-item i {
+  font-size: 3em;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.benefit-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+  text-align: center;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 30px auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  text-align: center;
+  padding: 80px 0;
+}
+
+.testimonials-section h2 {
+  color: var(--light-text);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.testimonial-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  font-style: italic;
+}
+
+.testimonial-item cite {
+  display: block;
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* FAQ Section */
+.faq-section {
+  text-align: center;
+}
+
+.faq-item {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  text-align: left;
+}
+
+.faq-item h3 {
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  color: var(--dark-text);
+  transition: color var(--transition-speed) ease;
+}
+
+.faq-item h3:hover {
+  color: var(--primary-color);
+}
+
+.faq-item p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-speed) ease-out,
+    margin-top var(--transition-speed) ease-out;
+  margin-top: 0;
+  padding-top: 0;
+  color: #555;
+}
+
+.faq-item.active p {
+  max-height: 100px; /* Ajuste conforme o conteúdo, precisa ser maior que o conteúdo */
+  margin-top: 15px;
+  padding-top: 5px;
+}
+
+.faq-item h3::after {
+  content: "\002B"; /* Sinal de mais */
+  font-size: 1.5em;
+  font-weight: bold;
+  transition: transform var(--transition-speed) ease;
+}
+
+.faq-item.active h3::after {
+  content: "\2212"; /* Sinal de menos */
+  transform: rotate(180deg);
+}
+
+/* CTA Section */
+.cta-section {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-section h2 {
+  color: var(--light-text);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.cta-section .guarantee {
+  margin-top: 30px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+/* Footer */
+footer {
+  background-color: var(--background-dark);
+  color: #adb5bd;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+footer .social-links a {
+  color: var(--light-text);
+  font-size: 1.5em;
+  margin: 0 10px;
+  transition: color var(--transition-speed) ease;
+}
+
+footer .social-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5em;
+  }
+
+  .hero .subtitle {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .benefits-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
+
+  .cta-section h2 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2em;
+  }
+  .hero .subtitle {
+    font-size: 1em;
+  }
+  .hero .logo {
+    max-width: 150px;
+  }
+  h2 {
+    font-size: 1.6em;
+  }
+  .benefit-item h3 {
+    font-size: 1.1em;
+  }
+  .cta-section h2 {
+    font-size: 1.8em;
+  }
+}
