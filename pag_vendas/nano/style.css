@@ -298,17 +298,19 @@ section:nth-of-type(even) {
 }
 
 .faq-item p {
-  max-height: 0;
+  max-height: 0px;
   overflow: hidden;
   transition: max-height var(--transition-speed) ease-out,
     margin-top var(--transition-speed) ease-out;
   margin-top: 0;
   padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
   color: #555;
 }
 
 .faq-item.active p {
-  max-height: 100px; /* Ajuste conforme o conteúdo, precisa ser maior que o conteúdo */
+  max-height: 400px; /* Ajuste conforme o conteúdo, precisa ser maior que o conteúdo */
   margin-top: 15px;
   padding-top: 5px;
 }
