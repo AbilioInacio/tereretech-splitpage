@@ -76,7 +76,7 @@ p {
   text-align: center;
   cursor: pointer;
   border: none;
-  margin: 20px;
+  margin: 15px;
 }
 
 .primary-btn {
@@ -163,7 +163,7 @@ p {
 
 /* Header - Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url("../img/stanley/stanley-motocross.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -408,6 +408,10 @@ section:nth-of-type(even) {
   opacity: 0.99;
 }
 
+#final {
+  max-width: 600px;
+}
+
 .cta-section h2 {
   color: var(--background-light);
   font-size: 2.5em;
@@ -498,6 +502,7 @@ footer .social-links a:hover {
   .btn {
     padding: 12px 25px;
     font-size: 1em;
+    margin: 7px;
   }
 
   #btn-comprar-fixo {
