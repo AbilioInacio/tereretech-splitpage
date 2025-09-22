@@ -163,9 +163,10 @@ p {
 /* Header - Hero Section */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../img/stanley/stanley-motocross.webp"); /* Substitua pela sua imagem de fundo */
-  background-size: 130vh;
-  background-position: bottom;
+    url("../img/stanley/stanley-motocross.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left bottom;
   color: var(--light-text);
   text-align: center;
   padding: 10px 20px;
@@ -229,6 +230,10 @@ section:nth-of-type(even) {
 /* Benefits Section */
 .benefits-section {
   text-align: center;
+}
+
+.benefits-section .container {
+  padding: 10px 60px;
 }
 
 .benefits-grid {
@@ -467,6 +472,17 @@ footer .social-links a:hover {
 
   .hero .subtitle {
     font-size: 1.2em;
+  }
+
+  .hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../img/stanley/stanley-motocross.webp");
+    background-size: 130vh;
+    background-position: bottom;
+  }
+
+  .benefits-section .container {
+    padding: 10px;
   }
 
   h2 {
