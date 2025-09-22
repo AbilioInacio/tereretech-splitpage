@@ -9,7 +9,7 @@
   --light-text: #f8f9fa;
   --background-light: #f8f9fa;
   --background-dark: #343a40;
-  --border-radius: 8px;
+  --border-radius: 30px;
   --transition-speed: 0.3s;
 }
 
@@ -79,9 +79,10 @@ p {
 }
 
 .primary-btn {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: var(--light-text);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
 }
 
 .primary-btn:hover {
@@ -93,11 +94,70 @@ p {
   background-color: var(--secondary-color);
   color: var(--light-text);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .secondary-btn:hover {
   background-color: #0056b3; /* Azul mais escuro */
   transform: translateY(-2px);
+}
+
+.tertiary-btn {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+}
+
+.tertiary-btn:hover {
+  background-color: #218838; /* Verde mais escuro */
+  transform: translateY(-2px);
+}
+
+/* Estilos base dos botões flutuantes */
+.botao-flutuante {
+  position: fixed;
+  bottom: 20px;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================= BOTÕES FIXOS ======================= */
+#botoes-fixos {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 1rem;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#btn-whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px var(--cor-sombra);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#btn-whatsapp-fixo:hover {
+  transform: scale(1.1);
 }
 
 /* Header - Hero Section */
@@ -121,7 +181,7 @@ p {
 }
 
 .hero .logo {
-  max-width: 200px;
+  max-width: 250px;
   /*margin-bottom: 10px;*/
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }
@@ -143,9 +203,8 @@ p {
   margin: 20px auto;
   max-width: 700px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border-radius: var(--border-radius);
+  border-radius: 10px;
   overflow: hidden;
-  height: 330px;
 }
 
 .hero .product-hero-image {
@@ -352,6 +411,12 @@ section:nth-of-type(even) {
   margin-bottom: 30px;
 }
 
+.texto-final a {
+  color: #aaffec; /* Um ciano claro para destaque */
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .cta-section .guarantee {
   margin-top: 30px;
   font-size: 0.9em;
@@ -414,6 +479,11 @@ footer .social-links a:hover {
   .btn {
     padding: 12px 25px;
     font-size: 1em;
+  }
+
+  #btn-comprar-fixo {
+    padding: 12px;
+    width: 50vw;
   }
 
   .cta-section h2 {
