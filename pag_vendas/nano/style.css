@@ -400,7 +400,7 @@ section:nth-of-type(even) {
   background-color: var(--background-dark);
   color: var(--accent-color);
   text-align: center;
-  padding: 80px 20px;
+  padding: 10px 20px;
 
   position: relative;
   width: 100%;

@@ -60,4 +60,39 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   observer.observe(ultimaSecao);
+
+  //rolagem mais devagar na trasicao do botao comprar
+  document
+    .querySelector("#btn-comprar-fixo")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const target = document.querySelector("#buy");
+      const targetPosition =
+        target.getBoundingClientRect().top + window.scrollY;
+      const startPosition = window.scrollY;
+      const distance = targetPosition - startPosition;
+      const duration = 4000; // duração em milissegundos (1000 = 1 segundo)
+      let start = null;
+
+      function animationScroll(timestamp) {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+        const ease = easeInOutQuad(progress, startPosition, distance, duration);
+        window.scrollTo(0, ease);
+        if (progress < duration) {
+          requestAnimationFrame(animationScroll);
+        }
+      }
+
+      // Função de easing (animação suave)
+      function easeInOutQuad(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animationScroll);
+    });
 });
