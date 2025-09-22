@@ -163,9 +163,9 @@ p {
 /* Header - Hero Section */
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../img/garrafa-terere-tech.jpeg"); /* Substitua pela sua imagem de fundo */
-  background-size: cover;
-  background-position: center;
+    url("../img/stanley/stanley-motocross.webp"); /* Substitua pela sua imagem de fundo */
+  background-size: 130vh;
+  background-position: bottom;
   color: var(--light-text);
   text-align: center;
   padding: 10px 20px;
@@ -205,12 +205,14 @@ p {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   overflow: hidden;
+  /*height: 270px;*/
 }
 
 .hero .product-hero-image {
   width: 100%;
   height: auto;
   display: block;
+  /*transform: translateY(-40%);*/
 }
 
 /* Sections Gerais */
