@@ -76,6 +76,7 @@ p {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin: 20px;
 }
 
 .primary-btn {
